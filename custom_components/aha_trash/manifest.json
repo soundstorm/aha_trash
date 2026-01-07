@@ -1,0 +1,11 @@
+{
+  "domain": "aha_trash",
+  "name": "AHA Trash Pickup",
+  "version": "1.0.1",
+  "config_flow": true,
+  "documentation": "https://github.com/soundstorm/aha_trash",
+  "requirements": [],
+  "dependencies": [],
+  "codeowners": ["@soundstrm"],
+  "iot_class": "cloud_polling"
+}

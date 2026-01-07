@@ -1,0 +1,40 @@
+{
+    "title": "aha Abfuhrtermine",
+    "config": {
+        "step": {
+            "user": {
+                "title": "Gemeinde",
+                "description": "Gemeinde aus der Liste wählen",
+                "data": {
+                    "gemeinde": "Gemeinde"
+                }
+            },
+            "strasse": {
+                "title": "Straße/Hausnummer in Gemeinde {gemeinde}",
+                "description": "Straße aus der Liste wählen und Hausnummer (und Zusatz) eingeben.",
+                "data": {
+                    "strasse": "Straße",
+                    "hausnr": "Hausnummer",
+                    "hausnraddon": "Zusatz, z.B. \"b\""
+                }
+            },
+            "ladeort": {
+                "title": "Ladeort",
+                "description": "Diese Adresse hat unterschiedliche Ladeorte zur Auswahl.",
+                "data": {
+                    "ladeort": "ladeort"
+                }
+            }
+        },
+        "abort": {
+            "already_configured": "Abholstelle ist bereits eingerichtet"
+        },
+        "error": {
+            "cannot_connect": "Abruf von der Webseite fehlgeschlagen, bitte erneut versuchen.",
+            "fetch_failed": "Abrufen der Gemeinden fehlgeschlagen, bitte die genaue Kennung von der aha-Webseite abrufen und eingeben.",
+            "invalid_address": "Ungültige Adresse oder nicht von aha bedient.",
+            "invalid_address2": "Ungültiger Ladeort.",
+            "unknown": "Unerwarteter Fehler."
+        }
+    }
+}
