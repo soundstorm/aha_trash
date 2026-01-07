@@ -1,5 +1,6 @@
 {
   "name": "aha Müllabfuhr Termine",
+  "country": "DE",
   "render_readme": true,
   "zip_release": false
 }
