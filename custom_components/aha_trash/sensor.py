@@ -49,14 +49,14 @@ class AHATrashDateSensor(SensorEntity):
         if is_tomorrow:
             icons = {
                 "Restabfall": "mdi:trash-can",
-                "Bioabfall": "mdi:leaf",
+                "Bioabfall": "mdi:food-apple",
                 "Papier": "mdi:file-document",
                 "Leichtverpackungen": "mdi:recycle",
             }
         else:
             icons = {
                 "Restabfall": "mdi:trash-can-outline",
-                "Bioabfall": "mdi:leaf-off",
+                "Bioabfall": "mdi:food-apple-outline",
                 "Papier": "mdi:file-document-outline",
                 "Leichtverpackungen": "mdi:recycle-variant",
             }

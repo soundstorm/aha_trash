@@ -51,7 +51,7 @@ class AHATrashBinarySensor(BinarySensorEntity):
             # Filled icons when pickup is tomorrow
             icons = {
                 "Restabfall": "mdi:trash-can",
-                "Bioabfall": "mdi:leaf",
+                "Bioabfall": "mdi:food-apple",
                 "Papier": "mdi:file-document",
                 "Leichtverpackungen": "mdi:recycle",
             }
@@ -59,7 +59,7 @@ class AHATrashBinarySensor(BinarySensorEntity):
             # Outline / variant icons when off
             icons = {
                 "Restabfall": "mdi:trash-can-outline",
-                "Bioabfall": "mdi:leaf-off",
+                "Bioabfall": "mdi:food-apple-outline",
                 "Papier": "mdi:file-document-outline",
                 "Leichtverpackungen": "mdi:recycle-variant",
             }
