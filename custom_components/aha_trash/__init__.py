@@ -11,12 +11,12 @@ from homeassistant.helpers.event import async_track_point_in_time
 from .const import DOMAIN, CONF_GEMEINDE, CONF_STRASSE, CONF_HAUSNR, CONF_HAUSNRADDON, CONF_LADEORT, ABFALLARTEN, BASE_URL
 
 _LOGGER = logging.getLogger(__name__)
-PLATFORMS = [Platform.BINARY_SENSOR, Platform.SENSOR]
+PLATFORMS = [Platform.BINARY_SENSOR, Platform.SENSOR, Platform.CALENDAR]
 
 async def async_setup_entry(hass, entry):
     """Set up AHA Trash Pickup from a config entry."""
     session = async_get_clientsession(hass)
-    coordinator = AHATrashCoordinator(hass, session, entry.data)
+    coordinator = AHATrashCoordinator(hass, session, entry)
     await coordinator.async_config_entry_first_refresh()
 
     hass.data.setdefault(DOMAIN, {})[entry.entry_id] = coordinator
@@ -50,10 +50,11 @@ async def async_unload_entry(hass, entry):
 class AHATrashCoordinator(DataUpdateCoordinator):
     """AHA Trash data update coordinator."""
 
-    def __init__(self, hass, session, config):
+    def __init__(self, hass, session, entry):
         """Initialize coordinator."""
         self.session = session
-        self.config = config
+        self.config = entry.data
+        self.entry = entry
         super().__init__(hass, _LOGGER, name=DOMAIN)
 
     async def _async_update_data(self):
@@ -88,6 +89,7 @@ class AHATrashCoordinator(DataUpdateCoordinator):
                 result[abfallart] = {
                     "next_date": next_date,
                     "is_tomorrow": next_date == tomorrow,
+                    "all_dates": termine,
                 }
             except ValueError:
                 _LOGGER.debug(f"Trash type {abfallart} not found")
