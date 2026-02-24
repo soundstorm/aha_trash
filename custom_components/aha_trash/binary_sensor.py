@@ -2,7 +2,7 @@
 from homeassistant.components.binary_sensor import BinarySensorEntity
 from homeassistant.helpers.device_registry import DeviceEntryType, DeviceInfo
 
-from .const import DOMAIN, ABFALLARTEN
+from .const import DOMAIN, ABFALLARTEN, MANUFACTURER
 
 async def async_setup_entry(hass, entry, async_add_entities):
     """Set up the binary sensor platform."""
@@ -29,7 +29,7 @@ class AHATrashBinarySensor(BinarySensorEntity):
         return DeviceInfo(
             identifiers={(DOMAIN, self.coordinator.entry.entry_id)},
             name=self.coordinator.entry.title,
-            manufacturer="AHA",
+            manufacturer=MANUFACTURER,
             entry_type=DeviceEntryType.SERVICE,
         )
 

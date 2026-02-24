@@ -4,7 +4,7 @@ from datetime import date as dt_date, timedelta
 from homeassistant.components.calendar import CalendarEntity, CalendarEvent
 from homeassistant.helpers.device_registry import DeviceEntryType, DeviceInfo
 
-from .const import DOMAIN, ABFALLARTEN
+from .const import DOMAIN, ABFALLARTEN, MANUFACTURER
 
 
 async def async_setup_entry(hass, entry, async_add_entities):
@@ -33,7 +33,7 @@ class AHATrashCalendar(CalendarEntity):
         return DeviceInfo(
             identifiers={(DOMAIN, self.coordinator.entry.entry_id)},
             name=self.coordinator.entry.title,
-            manufacturer="AHA",
+            manufacturer=MANUFACTURER,
             entry_type=DeviceEntryType.SERVICE,
         )
 

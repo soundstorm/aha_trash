@@ -6,7 +6,7 @@ from homeassistant.const import CONF_NAME
 from homeassistant.helpers.device_registry import DeviceEntryType, DeviceInfo
 from homeassistant.helpers.entity import EntityCategory
 
-from .const import DOMAIN, ABFALLARTEN
+from .const import DOMAIN, ABFALLARTEN, MANUFACTURER
 
 async def async_setup_entry(hass, entry, async_add_entities):
     """Set up the sensor platform."""
@@ -36,7 +36,7 @@ class AHATrashDateSensor(SensorEntity):
         return DeviceInfo(
             identifiers={(DOMAIN, self.coordinator.entry.entry_id)},
             name=self.coordinator.entry.title,
-            manufacturer="AHA",
+            manufacturer=MANUFACTURER,
             entry_type=DeviceEntryType.SERVICE,
         )
 

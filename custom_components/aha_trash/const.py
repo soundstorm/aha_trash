@@ -1,4 +1,5 @@
 DOMAIN = "aha_trash"
+MANUFACTURER = "Abfallwirtschaft Region Hannover"
 
 CONF_GEMEINDE = "gemeinde"
 CONF_STRASSE = "strasse"
