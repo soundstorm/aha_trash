@@ -1,5 +1,6 @@
 """Binary sensor platform for AHA Trash Pickup."""
 from homeassistant.components.binary_sensor import BinarySensorEntity
+from homeassistant.helpers.device_registry import DeviceEntryType, DeviceInfo
 
 from .const import DOMAIN, ABFALLARTEN
 
@@ -21,6 +22,16 @@ class AHATrashBinarySensor(BinarySensorEntity):
         self.abfallart = abfallart
         self._attr_unique_id = f"{entry_id}_{abfallart.lower()}"
         self._attr_name = f"{abfallart} Abholung morgen"
+
+    @property
+    def device_info(self):
+        """Return device info to group entities under the address device."""
+        return DeviceInfo(
+            identifiers={(DOMAIN, self.coordinator.entry.entry_id)},
+            name=self.coordinator.entry.title,
+            manufacturer="AHA",
+            entry_type=DeviceEntryType.SERVICE,
+        )
 
     @property
     def is_on(self):

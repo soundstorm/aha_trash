@@ -3,6 +3,7 @@ from datetime import date as dt_date
 
 from homeassistant.components.sensor import SensorDeviceClass, SensorEntity
 from homeassistant.const import CONF_NAME
+from homeassistant.helpers.device_registry import DeviceEntryType, DeviceInfo
 from homeassistant.helpers.entity import EntityCategory
 
 from .const import DOMAIN, ABFALLARTEN
@@ -28,6 +29,16 @@ class AHATrashDateSensor(SensorEntity):
         self.abfallart = abfallart
         self._attr_unique_id = f"{entry_id}_{abfallart.lower().replace(' ', '_')}_date"
         self._attr_name = f"{abfallart} nächste Abholung"
+
+    @property
+    def device_info(self):
+        """Return device info to group entities under the address device."""
+        return DeviceInfo(
+            identifiers={(DOMAIN, self.coordinator.entry.entry_id)},
+            name=self.coordinator.entry.title,
+            manufacturer="AHA",
+            entry_type=DeviceEntryType.SERVICE,
+        )
 
     @property
     def native_value(self):
