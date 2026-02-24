@@ -1,7 +1,7 @@
 {
   "domain": "aha_trash",
   "name": "AHA Trash Pickup",
-  "codeowners": ["@soundstrm"],
+  "codeowners": ["@soundstorm"],
   "config_flow": true,
   "dependencies": [],
   "documentation": "https://github.com/soundstorm/aha_trash",
